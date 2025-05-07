@@ -1,0 +1,11 @@
+@mixin drop-down-properties {
+  background-color: #ffff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: absolute;
+  inset: 0px 0px auto auto;
+  transform: translate3d(0px, 40px, 0px);
+  margin-top: 15px;
+  padding: 6px;
+  z-index: 2;
+  border-radius: 8px;
+}
