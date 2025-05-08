@@ -9,6 +9,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
 
 function SignUp() {
   const navigate = useNavigate();
@@ -30,6 +32,13 @@ function SignUp() {
   };
   const [passwordCriteria, setPasswordCriteria] = useState(initialCriteria);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+   const togglePassword = () => {
+      setShowPassword((prev) => !prev);
+    };
+  
 
   const formats = {
     name: /^[a-zA-Z\s]{5,}$/,
@@ -143,9 +152,10 @@ function SignUp() {
         <div className='input-sections'>
           <div className='input-forms'>
             <i><LockIcon /></i>
-            <input placeholder='Enter Your Password' type="password" name="password" value={formData.password} onChange={handleChange}
+            <input placeholder='Enter Your Password' type={showPassword ? "text" : "password"} name="password" value={formData.password} onChange={handleChange}
               onFocus={() => setIsPasswordFocused(true)}
               onBlur={() => setIsPasswordFocused(false)} />
+            <i className='password-icon'><VisibilityIcon onClick={togglePassword} /></i>
           </div>
           <p className='error-msg'>{errors.password}</p>
           {isPasswordFocused && (
@@ -168,8 +178,6 @@ function SignUp() {
             </div>
           )}
         </div>
-
-
         <div className='input-sections'>
           <div className='input-forms'>
             <i><VerifiedUserIcon /></i>

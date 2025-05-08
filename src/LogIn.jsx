@@ -78,7 +78,6 @@ function LogIn() {
             </div>
             <p className='error-msg'>{emailError}</p>
           </div>
-
           <div className='input-sections'>
             <div className='input-forms'>
               <i><LockIcon /></i>
